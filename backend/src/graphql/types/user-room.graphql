@@ -1,0 +1,17 @@
+type UserRoom {
+  id: String!
+  name: String!
+  user: User!
+  room: Room!
+  joinedAt: String
+  updatedAt: String
+  createdAt: String
+}
+
+type Query {
+  getUserRoom(id: String!): UserRoom
+}
+
+type Mutation {
+  getUserRoom(id: String!): UserRoom
+}

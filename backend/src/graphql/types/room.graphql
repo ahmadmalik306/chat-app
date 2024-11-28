@@ -1,0 +1,23 @@
+type Room {
+  id: String!
+  participants: [User!]!
+  type: RoomType
+  updatedAt: String
+  createdAt: String
+}
+input RoomInput {
+  name: String!
+  participants: [String!]!
+}
+enum RoomType {
+  PRIVATE
+  GROUP
+}
+type Query {
+  getRoom(id: String!): Room
+}
+
+type Mutation {
+  createNewContact(input: RoomInput!): Room
+  createNewGroup(input: RoomInput!): Room
+}

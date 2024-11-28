@@ -1,0 +1,19 @@
+type Message {
+  id: String!
+  content: String!
+  sender: User!
+  room: Room!
+  updatedAt: String
+  createdAt: String
+}
+input MessageInput {
+  sender: String!
+  room: String!
+  content: String!
+}
+type Query {
+  getMessage(id: String!): Message
+}
+type Mutation {
+  sendMessage(input: MessageInput!): Message
+}
