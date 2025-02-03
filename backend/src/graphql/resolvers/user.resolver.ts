@@ -1,4 +1,4 @@
-import { getUser, createNewUser, getAllUser } from "../../controller";
+import { getUser, createNewUser, getAllUser, loginUser } from "../../controller";
 export const resolvers = {
   Query: {
     hello: () => "Hello, world!",
@@ -36,7 +36,7 @@ export const resolvers = {
     },
     loginUser: async (_, { input }) => {
       try {
-        const user = await createNewUser(input); // Replace with actual DB logic
+        const user = await loginUser(input); // Replace with actual DB logic
         console.log("Entering resolver", user);
         return user;
       } catch (error) {

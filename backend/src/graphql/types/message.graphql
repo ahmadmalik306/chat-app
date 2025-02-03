@@ -13,6 +13,7 @@ input MessageInput {
 }
 type Query {
   getMessage(id: String!): Message
+  getRoomConversation(roomId: String!): [Message]
 }
 type Mutation {
   sendMessage(input: MessageInput!): Message

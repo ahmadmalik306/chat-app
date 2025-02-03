@@ -1,4 +1,9 @@
-import { createNewContact, createNewGroup, getRoom } from "../../controller/room.controller";
+import {
+  createNewContact,
+  createNewGroup,
+  getCurrentUserRooms,
+  getRoom,
+} from "../../controller/room.controller";
 
 export const roomResolvers = {
   Query: {
@@ -9,6 +14,10 @@ export const roomResolvers = {
         console.error("Error in resolver:", error);
         throw new Error("Failed to fetch room");
       }
+    },
+    getAllRoomsForUser: async (_, { userId }: { userId: string }) => {
+      const rooms = await getCurrentUserRooms(userId);
+      return rooms;
     },
   },
   Mutation: {
