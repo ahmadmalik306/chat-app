@@ -18,7 +18,7 @@ export const createNewGroup = async (data: any): Promise<IRoom | null> => {
   const newRoom = {
     ...data,
     createdAt: new Date(),
-    type: "private",
+    type: "group",
   };
   const room = await Room.create(newRoom);
   await createUserRoom(data.participants, room);
@@ -28,4 +28,8 @@ const createUserRoom = async (participants, room) => {
   await Promise.all(
     participants.map(async (participant) => await UserRoom.create({ room, participant }))
   );
+};
+export const getCurrentUserRooms = async (userId: string): Promise<Array<IRoom> | null> => {
+  const rooms = await Room.find({ participants: { $in: [userId] } }).populate("participants");
+  return rooms;
 };

@@ -8,6 +8,11 @@ export interface IRoom extends Document {
 }
 
 const roomSchema = new Schema<IRoom>({
+  name: {
+    type: String,
+    required: [true, "Room name is required"],
+    default: "Unnamed Room",
+  },
   participants: [
     {
       type: mongoose.Schema.Types.ObjectId,

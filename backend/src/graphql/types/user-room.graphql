@@ -1,6 +1,5 @@
 type UserRoom {
   id: String!
-  name: String!
   user: User!
   room: Room!
   joinedAt: String

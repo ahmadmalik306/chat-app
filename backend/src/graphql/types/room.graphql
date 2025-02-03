@@ -1,5 +1,6 @@
 type Room {
   id: String!
+  name: String!
   participants: [User!]!
   type: RoomType
   updatedAt: String
@@ -15,6 +16,7 @@ enum RoomType {
 }
 type Query {
   getRoom(id: String!): Room
+  getAllRoomsForUser(userId: String!): [Room]
 }
 
 type Mutation {

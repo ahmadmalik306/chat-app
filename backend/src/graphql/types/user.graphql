@@ -25,7 +25,12 @@ type LoginResult {
   message: String
   token: String
 }
+
+input loginInput {
+  email: String!
+  password: String!
+}
 type Mutation {
   createUser(input: UserInput!): User
-  loginUser(input: UserInput!): LoginResult
+  loginUser(input: loginInput!): LoginResult
 }
