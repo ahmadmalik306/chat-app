@@ -41,7 +41,7 @@ export const resolvers = {
         return user;
       } catch (error) {
         console.error("Error in resolver:", error);
-        throw new Error("Failed to add user");
+        throw new Error("Login issue" + error);
       }
     },
   },
